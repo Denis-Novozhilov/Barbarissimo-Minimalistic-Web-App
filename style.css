@@ -7,8 +7,8 @@ html {
 }
 
 .main_box {
-    width: 95%;
-    height: 95vh;
+    width: 99%;
+    height: 98vh;
     margin: 0 auto;
     padding:1em 2em;
     background-color: rgb(254, 218, 177);
@@ -18,26 +18,46 @@ html {
 .main_box h1 {
     color:rgb(226, 141, 101);
     font-family: arial,sans-serif;
-    font-size: 1.8em;
+    font-size: 0.8em;
+    text-align: center;
 }
 
 #name-field {
-    width: 100%;
+    /* width: 10vw; */
+    text-align: center;
     padding: 1em;
-    border-radius: 30px;
+    /* height: 75vh; */
+    border-radius: 20px;
     background-color: rgb(255, 239, 195);
 }
 
-#name-field .area {
+#name-field .area,
+.proposeds {
     width: 100%;
-    height: 30vh;
+    height: 18vh;
     margin: 1vh 0;
     padding: 0.7em;
-    border-radius: 30px;
-    border: 1px solid rgb(169, 114, 114);
+    border-radius: 8px;
+    border: 1px solid rgb(187, 148, 148);
     background-color: rgb(255, 245, 245);
     font-family: arial,sans-serif;
     font-size: 1.2em;
     text-align: center;
     color: rgb(153, 84, 34);
+    resize: none;
+}
+
+#check-button {
+    width: 50%;
+    padding: 0.7em;
+    border: 1px solid grey;
+    border-radius: 4px;
+    margin: 1vh auto;
+    font-family: arial,sans-serif;
+    background-color: rgb(254, 218, 177);
+}
+
+.proposeds {
+    background-color: rgb(254, 218, 177);
+    border: none;
 }

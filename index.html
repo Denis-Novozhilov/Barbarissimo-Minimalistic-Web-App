@@ -10,11 +10,19 @@
     <div class="main_box">
         <h1>Barbarissimo_ver_z001</h1>
         <form id="name-field" name="main-field" action="#">
-            <input id="task-string" type="text" class="area">
-            <input id="answer-string" type="text" class="area">
+            <!-- <input id="task-string" type="text" class="area area-task" readonly> -->
+            <!-- <input id="answer-string" type="text" class="area area-answer"> -->
+
+            <textarea id="task-string" type="text" class="area area-task" name="" id="" cols="30" rows="10" readonly></textarea>
+            <textarea id="answer-string" type="text" class="area area-answer" name="" id="" cols="30" rows="10"></textarea>
             <!-- <input type="reset" value="reset"> -->
+            <div class="proposeds">
+
+            </div>
+            <input id="check-button" type="button" value="проверить">
         </form>
     </div>
-    <script src="main.js"></script>
+    <script src="js/vocabulary.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
