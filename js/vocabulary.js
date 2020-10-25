@@ -4,7 +4,7 @@
     
     window.vocabulary = {
 
-        TasksAdnAnswers: [
+        TasksAndAnswers: [
             {
                 id:`0`,
                 question:`Это интересно, потому что студенты изучают робототехнику, а также изучают компьютерное программирование.`,
