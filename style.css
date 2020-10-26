@@ -57,15 +57,18 @@ body {
     width: 100%;
     height-min: 18vh;
     margin: 1vh 0 0 0;
-    padding: 3.5vh 1em;
+    padding: 3vh 20px;
     border-radius: 8px;
     border: 1px solid rgb(226, 141, 101);
     background-color: rgb(255, 245, 245);
     font-family: arial,sans-serif;
-    font-size: 1em;
+    font-size: 0.9em;
     text-align: center;
     color: rgb(153, 84, 34);
-    resize: none;
+    overflow:hidden;
+}
+#answer-string:focus {
+    border: none;
 }
 
 #check-button {
