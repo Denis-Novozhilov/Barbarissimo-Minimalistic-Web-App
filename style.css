@@ -80,6 +80,7 @@ body {
     margin: 2vh auto 0vh;
     font-family: arial,sans-serif;
     background-color: rgb(254, 218, 177);
+    color: rgb(153, 84, 34);
 }
 
 .proposeds {
@@ -91,4 +92,14 @@ body {
 .proposeds *,
 #name-field *{
     transition: .8s ease-out;
+}
+
+.victory {
+    background-color: rgb(103, 196, 103) !important;
+    font-size: 1em !important;
+}
+
+.fail {
+    background-color: rgb(213, 117, 136) !important;
+    font-size: 1em !important;
 }
