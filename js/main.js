@@ -28,59 +28,53 @@ const askNewQuestion = function() {
     
     taskArea.innerText = `${questionString}`;
     
-    let arrQuestion = window.randomiser.getArrFromString(questionString);
-    let arrAnswer = window.randomiser.getArrFromString(answerString);
 
+
+    let arrQuestion = window.randomiser.getArrFromString(questionString);
+
+    let arrAnswer = window.randomiser.getArrFromString(answerString);
     let errorsQuantity = window.randomiser.getRandomFromInterval((arrAnswer.length) / 3 , (arrAnswer.length) / 2);
     let arrWithErrors1st = window.randomiser.getRandomSetFromArrayInQuantity( window.vocabulary.AddWords[answerLang] , errorsQuantity);
     let arrWithErrors2nd = window.randomiser.getRandomSetFromArrayInQuantity( window.vocabulary.AddWords[answerLang] , errorsQuantity);
-
     let encryptedArray1st = window.randomiser.arrayShaker(arrAnswer, arrWithErrors1st.slice(1, 2));
     let encryptedArray2nd = window.randomiser.arrayShaker(arrAnswer, arrWithErrors2nd.slice(2, -1));
-
     let encryptedArray = window.randomiser.arrayShaker(encryptedArray1st, encryptedArray2nd);
+
+
 
     renderFragment(encryptedArray);
 
-    let startValidation = function() {
+
+
+    // let startValidation = function() {
 
         let proElems = propArea.querySelectorAll('span');
-
-        // let answerElems = answerArea.querySelectorAll('span');
-
-        // console.log(proElems);
         for (let proElem of proElems) {
             proElem.addEventListener('click', function(evt){
-                // console.log(evt.target.innerText);
-                let proWord = evt.target.innerText;
-                // answerArea.value += proWord;
-                    let element = document.createElement(`span`);
-                    // element.style = `${window.randomiser.proposedStyle}`;
-                    element.style = `${window.randomiser.answerWordStyle}`;
-                    element.innerText = proWord;
-                    // console.log(answerArea);
-                    // console.log(area);
 
-                    // area.appendChild(element);
-                // answerArea.innerHTML += element;
-                // answerArea.insertAdjacentElement(`afterbegin`, element);
-                answerArea.insertAdjacentElement(`afterbegin`, element);
+                window.render.renderWord(evt.target.innerText, answerArea, window.randomiser.answerWordStyle);
 
-                console.log(answerArea.textContent);
-                
-                let answerElems = answerArea.querySelectorAll('span');
-                console.log(answerElems);
-                for (let answerElem of answerElems) {
-                    answerElem.addEventListener('click', function(evt){
-                        console.log(`!!!${evt.target.textContent}`);
-                    });
-                }
+                // !!!
+                // answerElems = answerArea.querySelectorAll('span');
+                // let answerElems = answerArea.querySelectorAll('span');
+                // for (let answerElem of answerElems) {
+                //     answerElem.addEventListener('click', function(evt){
+                //         proElems = propArea.querySelectorAll('span');
+                //         console.log(proElems);
+                //         window.render.renderWord(evt.target.innerText, propArea, window.randomiser.proposedStyle);
+                //         evt.target.style = `display: none`;
+                //     });
+                // }
+                // !!!
 
                 evt.target.style = `display: none`;
             });
-        }
-    };
-    startValidation();
+        };
+        
+    // };
+    // startValidation();
+
+
 };
 
 askNewQuestion();
