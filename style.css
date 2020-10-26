@@ -33,7 +33,6 @@ body {
 }
 
 .main_box #mode {
-    /* background-color: rgb(254, 218, 177); */
     background-color: rgb(255, 239, 195);
     color:rgb(226, 141, 101);
     font-family: arial,sans-serif;
@@ -44,7 +43,6 @@ body {
     position: absolute;
     top: -8px;
     right: 0px;
-    /* border-radius: 0px 0px 0px 20px; */
     border-radius: 16px 16px 0px 0px;
 }
 
@@ -56,10 +54,7 @@ body {
     padding: 6px 22px 5px 12px;
     text-align: center;
     display: inline;
-    /* display: none; */
     position: absolute;
-    /* border: 1px solid red; */
-    /* overflow: hidden; */
 }
 
 #scoreRank {

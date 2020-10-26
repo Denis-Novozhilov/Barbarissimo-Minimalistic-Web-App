@@ -91,8 +91,6 @@ checkButton.addEventListener('click', function(evt){
             taskArea.classList.remove(`victory`);
             answerArea.classList.remove(`victory`);
             propArea.classList.remove(`victory`);
-            // +(document.querySelector(`#scoreRank`).querySelector(`.rank`).textContent)+1;
-            // scoreRank.textContent = +(scoreRank.textContent) + 1;
             propArea.innerHTML = ``;
             askNewQuestion();
         },2600);
@@ -103,19 +101,6 @@ checkButton.addEventListener('click', function(evt){
         setTimeout(function(){
             taskArea.classList.remove(`fail`);
             answerArea.classList.remove(`fail`);
-            // +(document.querySelector(`#failRank`).querySelector(`.rank`).textContent)+1;
-            // failRank.textContent = +(failRank.textContent) + 1;
         },1900);
     }
 });
-
-
-// document.querySelector(`#scoreRank`);
-// document.querySelector(`#scoreRank`).querySelector(`.rank`);
-
-// +(document.querySelector(`#scoreRank`).querySelector(`.rank`).textContent)+1;
-
-
-// document.querySelector(`#failRank`).querySelector(`.rank`);
-
-// +(document.querySelector(`#failRank`).querySelector(`.rank`).textContent)+1;
