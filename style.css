@@ -96,4 +96,5 @@ body {
 .proposeds {
     background-color: rgb(254, 218, 177);
     border: none;
+    height: auto;
 }
