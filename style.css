@@ -21,6 +21,7 @@ body {
     padding:1em 2em;
     background-color: rgb(254, 218, 177);
     border-radius: 30px 30px 30px 30px;
+    overflow-y: auto;
 }
 
 .main_box h1 {
@@ -52,23 +53,25 @@ body {
     background-color: rgb(255, 239, 195);
     font-family: arial,sans-serif;
     font-size: 0.6em;
-    padding: 6px 10px 5px 12px;
+    padding: 6px 22px 5px 12px;
     text-align: center;
     display: inline;
     /* display: none; */
     position: absolute;
     /* border: 1px solid red; */
+    /* overflow: hidden; */
 }
 
 #scoreRank {
     left: 0px;
     top: -8px;
     border-radius: 16px 0px 0px 0px;
+    overflow: hidden;
 }
 #failRank {
-    padding-left: 0px;
+    padding-left: 12px;
     padding-right: 18px;
-    left: 62px;
+    left: 60px;
     top: -8px;
     border-radius: 0px 16px 0px 0px;
 }

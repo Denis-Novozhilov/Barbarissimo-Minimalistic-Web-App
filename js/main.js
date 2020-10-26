@@ -78,7 +78,11 @@ checkButton.addEventListener('click', function(evt){
     let cleanAnswer = (usersAnswer.replace(/  /g, ` `).slice(1));
     let cleanUserAnswer = cleanAnswer.slice(0, cleanAnswer.length-1);
 
+    let scoreRank = document.querySelector(`#scoreRank`).querySelector(`.rank`);
+    let failRank = document.querySelector(`#failRank`).querySelector(`.rank`);
+
     if (cleanRightAnswer === cleanUserAnswer) {
+        scoreRank.textContent = +(scoreRank.textContent) + 1;
         taskArea.classList.add(`victory`);
         answerArea.classList.add(`victory`);
         propArea.classList.add(`victory`);
@@ -87,15 +91,31 @@ checkButton.addEventListener('click', function(evt){
             taskArea.classList.remove(`victory`);
             answerArea.classList.remove(`victory`);
             propArea.classList.remove(`victory`);
+            // +(document.querySelector(`#scoreRank`).querySelector(`.rank`).textContent)+1;
+            // scoreRank.textContent = +(scoreRank.textContent) + 1;
             propArea.innerHTML = ``;
             askNewQuestion();
         },2600);
     } else {
+        failRank.textContent = +(failRank.textContent) + 1;
         taskArea.classList.add(`fail`);
         answerArea.classList.add(`fail`);
         setTimeout(function(){
             taskArea.classList.remove(`fail`);
             answerArea.classList.remove(`fail`);
+            // +(document.querySelector(`#failRank`).querySelector(`.rank`).textContent)+1;
+            // failRank.textContent = +(failRank.textContent) + 1;
         },1900);
     }
 });
+
+
+// document.querySelector(`#scoreRank`);
+// document.querySelector(`#scoreRank`).querySelector(`.rank`);
+
+// +(document.querySelector(`#scoreRank`).querySelector(`.rank`).textContent)+1;
+
+
+// document.querySelector(`#failRank`).querySelector(`.rank`);
+
+// +(document.querySelector(`#failRank`).querySelector(`.rank`).textContent)+1;
