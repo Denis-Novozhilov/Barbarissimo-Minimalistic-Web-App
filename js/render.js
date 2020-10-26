@@ -4,14 +4,11 @@
 
     window.render = {
     
-        renderWord: function(word, area) {
+        renderWord: function(word, area, style) {
             let element = document.createElement(`span`);
-            element.style = `${window.randomiser.proposedStyle}`;
+            element.style = `${style}`;
             element.innerText = word;
-            console.log(element);
-            console.log(area);
-            area.appendChild(element);
-            // document.body.answerString.appendChild(element);
+            area.insertAdjacentElement(`afterbegin`, element);
         },
     
     };

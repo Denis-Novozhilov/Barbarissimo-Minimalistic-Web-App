@@ -43,24 +43,40 @@ const askNewQuestion = function() {
     renderFragment(encryptedArray);
 
     let startValidation = function() {
+
         let proElems = propArea.querySelectorAll('span');
-        console.log(proElems);
+
+        // let answerElems = answerArea.querySelectorAll('span');
+
+        // console.log(proElems);
         for (let proElem of proElems) {
             proElem.addEventListener('click', function(evt){
-                console.log(evt.target.innerText);
+                // console.log(evt.target.innerText);
                 let proWord = evt.target.innerText;
-                answerArea.value += proWord;
-                evt.target.remove();
-                // renderWord = function(word, area) {
-                //     let element = document.createElement(`span`);
-                //     element.style = `${window.randomiser.proposedStyle}`;
-                //     element.innerText = word;
-                //     area.appendChild(fragment);
-                // };
+                // answerArea.value += proWord;
+                    let element = document.createElement(`span`);
+                    // element.style = `${window.randomiser.proposedStyle}`;
+                    element.style = `${window.randomiser.answerWordStyle}`;
+                    element.innerText = proWord;
+                    // console.log(answerArea);
+                    // console.log(area);
 
-                // window.render.renderWord(proWord, answerArea);
+                    // area.appendChild(element);
+                // answerArea.innerHTML += element;
+                // answerArea.insertAdjacentElement(`afterbegin`, element);
+                answerArea.insertAdjacentElement(`afterbegin`, element);
 
+                console.log(answerArea.textContent);
+                
+                let answerElems = answerArea.querySelectorAll('span');
+                console.log(answerElems);
+                for (let answerElem of answerElems) {
+                    answerElem.addEventListener('click', function(evt){
+                        console.log(`!!!${evt.target.textContent}`);
+                    });
+                }
 
+                evt.target.style = `display: none`;
             });
         }
     };
