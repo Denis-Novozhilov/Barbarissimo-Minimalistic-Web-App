@@ -6,16 +6,12 @@ const checkButton = document.querySelector(`#check-button`);
 const modeSelector = document.querySelector(`#mode`);
 const propArea = document.querySelector(`.proposeds`);
 
-
-
-
-
 const askNewQuestion = function() {
 
     answerArea.innerHTML = ``;
     propArea.innerHTML = ``;
     
-    let randomTaskNumber = window.randomiser.getRandomFromInterval(0, 9);
+    let randomTaskNumber = window.randomiser.getRandomFromInterval(0, window.vocabulary.Tasks.length-1);
     let selectedMode = modeSelector.value;
     let questionLang = window.mode[selectedMode].Question;
     let answerLang = window.mode[selectedMode].Answer;
@@ -46,7 +42,6 @@ const askNewQuestion = function() {
 
 askNewQuestion();
 
-
 propArea.addEventListener('click', function(evt){
     if(evt.target.nodeName === `SPAN`) {
         window.render.renderWord(evt.target.textContent, answerArea, window.randomiser.answerWordStyle);
@@ -67,7 +62,6 @@ modeSelector.addEventListener('change', function(){
     askNewQuestion();
 });
 
-
 checkButton.addEventListener('click', function(evt){
     let currentTask = window.currentTaskItem;
 
@@ -75,27 +69,14 @@ checkButton.addEventListener('click', function(evt){
     let answerLang = window.mode[selectedMode].Answer;
     let rightAnswer = (currentTask[answerLang].toLowerCase());
 
-    // console.log(typeof rightAnswer);
-    // let preClean = rightAnswer.toLowerCase();
-    console.log(rightAnswer.length);
     let cleanRightAnswer = rightAnswer.slice(0, rightAnswer.length-1);
     cleanRightAnswer = cleanRightAnswer.replace(/, /g, ` `);
 
-    console.log(`HERE->[${cleanRightAnswer}]`);
-
-    // console.log(`!!![${cleanRightAnswer}]!!!`);
-
+    console.log(`HERE IS ANSWER->[${cleanRightAnswer}]`);
 
     let usersAnswer = answerArea.textContent;
-
-    // console.log(usersAnswer);
-    // console.log(typeof usersAnswer);
-
     let cleanAnswer = (usersAnswer.replace(/  /g, ` `).slice(1));
     let cleanUserAnswer = cleanAnswer.slice(0, cleanAnswer.length-1);
-    console.log(`HERE->[${cleanUserAnswer}]`);
-
-    console.log(cleanRightAnswer === cleanUserAnswer);
 
     if (cleanRightAnswer === cleanUserAnswer) {
         taskArea.classList.add(`victory`);
@@ -118,31 +99,3 @@ checkButton.addEventListener('click', function(evt){
         },1900);
     }
 });
-
-
-/*
-    let selectedMode = modeSelector.value;
-    let questionLang = window.mode[selectedMode].Question;
-    let answerLang = window.mode[selectedMode].Answer;
-
-    let questionString = window.vocabulary.Tasks[randomTaskNumber][questionLang];
-
-    let writeAnswer = window.vocabulary.Tasks[randomTaskNumber][answerLang];
-
-    writeAnswer = writeAnswer.toLowerCase();
-
-    writeAnswer = Array.from(writeAnswer);
-    // writeAnswer = Array.from(writeAnswer);
-    // console.log(x);
-    writeAnswer = writeAnswer.filter(function(el) {
-        return el != null;
-    });
-
-    console.log(writeAnswer[20]);
-
-    // writeAnswer = Object.toString(writeAnswer);
-
-    let usersAnswer = answerArea.textContent;
-
-    console.log(usersAnswer);
- */

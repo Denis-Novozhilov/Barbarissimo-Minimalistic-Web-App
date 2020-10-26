@@ -11,15 +11,16 @@ body {
 
 .main_box {
     position: fixed;
-    width: 99vw;
-    height: 99vh;
-    top: 0.2vh;
-    right: 0.5vw;
-    bottom: 0.1vh;
+    width: 100vw;
+    height: 100vh;
+    top: 0%;
+    right: 0%;
+    left: 0%;
+    bottom: 0;
     margin: 0.1vh 0.1vw;
     padding:1em 2em;
     background-color: rgb(254, 218, 177);
-    border-radius: 30px;
+    border-radius: 30px 30px 30px 30px;
 }
 
 .main_box h1 {
@@ -27,28 +28,64 @@ body {
     font-family: arial,sans-serif;
     font-size: 0.8em;
     text-align: center;
-    margin: 0 0 1em 0;
+    margin: 0 0 1.7em 0;
 }
 
 .main_box #mode {
-    background-color: rgb(254, 218, 177);
+    /* background-color: rgb(254, 218, 177); */
+    background-color: rgb(255, 239, 195);
     color:rgb(226, 141, 101);
     font-family: arial,sans-serif;
-    font-size: 0.8em;
+    font-size: 0.6em;
     border: none;
-    padding: 0 15px;
+    padding: 6px 15px 5px;
     display: block;
     position: absolute;
-    top: -7px;
-    right: -0.1vw;
-    border-radius: 0px 0px 0px 20px;
+    top: -8px;
+    right: 0px;
+    /* border-radius: 0px 0px 0px 20px; */
+    border-radius: 16px 16px 0px 0px;
+}
+
+#scoreRank, #failRank {
+    color:rgb(226, 141, 101);
+    background-color: rgb(255, 239, 195);
+    font-family: arial,sans-serif;
+    font-size: 0.6em;
+    padding: 6px 10px 5px 12px;
+    text-align: center;
+    display: inline;
+    /* display: none; */
+    position: absolute;
+    /* border: 1px solid red; */
+}
+
+#scoreRank {
+    left: 0px;
+    top: -8px;
+    border-radius: 16px 0px 0px 0px;
+}
+#failRank {
+    padding-left: 0px;
+    padding-right: 18px;
+    left: 62px;
+    top: -8px;
+    border-radius: 0px 16px 0px 0px;
+}
+.scoreVictory {
+    color: rgb(94, 177, 86);
+    font-weight: 700;
+}
+.scoreFail {
+    color: rgb(207, 58, 58);
+    font-weight: 700;
 }
 
 #name-field {
     position: relative;
     text-align: center;
     padding: 1em;
-    border-radius: 20px 0px 20px 20px;
+    border-radius: 15px 15px 20px 20px;
     background-color: rgb(255, 239, 195);
 }
 
