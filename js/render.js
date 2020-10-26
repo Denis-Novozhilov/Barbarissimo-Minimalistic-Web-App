@@ -8,7 +8,7 @@
             let element = document.createElement(`span`);
             element.style = style;
             element.innerText = word;
-            area.insertAdjacentElement(`afterbegin`, element);
+            area.insertAdjacentElement(`beforeend`, element);
         },
 
         renderFragment: function(arr, area, style) {

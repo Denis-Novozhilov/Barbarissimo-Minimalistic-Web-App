@@ -6,9 +6,11 @@ const checkButton = document.querySelector(`#check-button`);
 const modeSelector = document.querySelector(`#mode`);
 const propArea = document.querySelector(`.proposeds`);
 
+
+let randomTaskNumber = window.randomiser.getRandomFromInterval(0, 9);
+
 const askNewQuestion = function() {
 
-    let randomTaskNumber = window.randomiser.getRandomFromInterval(0, 9);
     let selectedMode = modeSelector.value;
     let questionLang = window.mode[selectedMode].Question;
     let answerLang = window.mode[selectedMode].Answer;
@@ -18,9 +20,9 @@ const askNewQuestion = function() {
     taskArea.innerText = `${questionString}`;
     
 
-
+    
+    
     let arrQuestion = window.randomiser.getArrFromString(questionString);
-
     let arrAnswer = window.randomiser.getArrFromString(answerString);
 
     let errorsQuantity = window.randomiser.getRandomFromInterval((arrAnswer.length) / 3 , (arrAnswer.length) / 2);
@@ -58,3 +60,34 @@ modeSelector.addEventListener('change', function(){
     askNewQuestion();
 });
 
+checkButton.addEventListener('click', function(evt){
+    // console.log(evt.target);
+    let selectedMode = modeSelector.value;
+
+    let questionLang = window.mode[selectedMode].Question;
+    let answerLang = window.mode[selectedMode].Answer;
+
+    // let questionString = window.vocabulary.Tasks[randomTaskNumber][questionLang];
+
+    let writeAnswer = window.vocabulary.Tasks[randomTaskNumber][answerLang].toLowerCase();
+    // writeAnswer = Array.from(writeAnswer);
+    console.log(writeAnswer.typeof);
+    // writeAnswer = Object.toString(writeAnswer);
+
+    let usersAnswer = answerArea.textContent;
+    console.log(usersAnswer.typeof);
+    // usersAnswer = Array.from(answerArea.textContent);
+    // let usersAnswer2 = usersAnswer.split(`,`);
+    // console.log(`2!!! ${usersAnswer2}`);
+
+    // usersAnswer = userAnswer.filter(function(element) {
+    //         return element != null;
+    //     });
+
+    // console.log(writeAnswer);
+    // console.log(writeAnswer.lenght);
+    // console.log(writeAnswer.typeof);
+    // console.log(userAnswer);
+    // console.log(userAnswer.lenght);
+    // console.log(userAnswer.typeof);
+});
