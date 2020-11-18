@@ -62,47 +62,4 @@ modeSelector.addEventListener('change', function(){
     askNewQuestion();
 });
 
-checkButton.addEventListener('click', function(evt){
-    let currentTask = window.currentTaskItem;
-
-    let selectedMode = modeSelector.value;
-    let answerLang = window.mode[selectedMode].Answer;
-    let rightAnswer = (currentTask[answerLang].toLowerCase());
-
-    let cleanRightAnswer = rightAnswer.slice(0, rightAnswer.length-1);
-    cleanRightAnswer = cleanRightAnswer.replace(/, /g, ` `);
-
-    console.log(`HERE IS ANSWER->[${cleanRightAnswer}]`);
-
-    let usersAnswer = answerArea.textContent;
-    let cleanAnswer = (usersAnswer.replace(/  /g, ` `).slice(1));
-    let cleanUserAnswer = cleanAnswer.slice(0, cleanAnswer.length-1);
-
-    let scoreRank = document.querySelector(`#scoreRank`).querySelector(`.rank`);
-    let failRank = document.querySelector(`#failRank`).querySelector(`.rank`);
-
-    if (cleanRightAnswer === cleanUserAnswer) {
-        scoreRank.textContent = +(scoreRank.textContent) + 1;
-        taskArea.classList.add(`victory`);
-        answerArea.classList.add(`victory`);
-        propArea.classList.add(`victory`);
-        // scoreRank.classList.add(`victory`);
-        // propArea.innerHTML = `Правильно =^_^=`;
-        setTimeout(function(){
-            taskArea.classList.remove(`victory`);
-            answerArea.classList.remove(`victory`);
-            propArea.classList.remove(`victory`);
-            // scoreRank.classList.remove(`victory`);
-            propArea.innerHTML = ``;
-            // askNewQuestion();
-        },700);
-    } else {
-        failRank.textContent = +(failRank.textContent) + 1;
-        taskArea.classList.add(`fail`);
-        answerArea.classList.add(`fail`);
-        setTimeout(function(){
-            taskArea.classList.remove(`fail`);
-            answerArea.classList.remove(`fail`);
-        },500);
-    }
-});
+checkButton.addEventListener('click', window.testings.CheckAnswer(modeSelector, answerArea, taskArea, propArea, askNewQuestion, checkButton));

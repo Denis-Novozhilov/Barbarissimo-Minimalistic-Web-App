@@ -162,7 +162,7 @@
             {
                 Id:`23`,
                 Russian:`Быть на связи в Кремниевой долине чрезвычайно ценно - в технологическом бизнесе это почти обязательно.`,
-                Spanish:`Es extremadamente valioso estar conectado en Silicon Valley; en el negocio de la tecnología es casi imprescindible.`,
+                Spanish:`Es extremadamente valioso estar conectado en Silicon Valley - en el negocio de la tecnología es casi imprescindible.`,
                 English: `It's extremely valuable to be connected in Silicon Valley - in the tech business it's almost a must.`,
                 Additional:``,
             },
@@ -236,13 +236,13 @@
                 English: `In order to implement a Hamming code, a test matrix (or table of numbers) must be built.`,
                 Additional:``,
             },
-             {
-                Id:`34`,
-                Russian:`Персональные данные превратились в большой бизнес, и это растущий бизнес.`,
-                Spanish:`Los datos personales se han convertido en un gran negocio y es un negocio en crecimiento.`,
-                English: `Personal data has become big business, and it is a growing business.`,
-                Additional:``,
-            },
+            //  {
+            //     Id:`34`,
+            //     Russian:`Персональные данные превратились в большой бизнес, и это растущий бизнес.`,
+            //     Spanish:`Los datos personales se han convertido en un gran negocio y es un negocio en crecimiento.`,
+            //     English: `Personal data has become big business, and it is a growing business.`,
+            //     Additional:``,
+            // },
              {
                 Id:`35`,
                 Russian:`Улучшенный искусственный интеллект (ИИ) обеспечивает лучший игровой процесс.`,

@@ -163,9 +163,11 @@ body {
 }
 
 .victory {
-    background-color: rgb(103, 196, 103) !important;
+    /* background-color: rgb(103, 196, 103) !important; */
+    background-color: rgb(191 255 173) !important;
 }
 
 .fail {
-    background-color: rgb(213, 117, 136) !important;
+    /* background-color: rgb(213, 117, 136) !important; */
+    background-color: rgb(245, 138, 160) !important;
 }
