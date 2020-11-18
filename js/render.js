@@ -4,18 +4,18 @@
 
     window.render = {
     
-        renderWord: function(word, area, style) {
+        renderWord: function(word, area, className) {
             let element = document.createElement(`span`);
-            element.style = style;
+            element.classList.add(className);
             element.innerText = word;
             area.insertAdjacentElement(`beforeend`, element);
         },
 
-        renderFragment: function(arr, area, style) {
+        renderFragment: function(arr, area, className) {
             let fragment = document.createDocumentFragment();
             for (let i = 0; i < arr.length; i++) {
                 let element = document.createElement(`span`);
-                element.style = style;
+                element.classList.add(className);
                 element.innerText = ` ${arr[i]} `;
                 fragment.appendChild(element);
             }

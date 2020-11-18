@@ -96,32 +96,6 @@
             return shakedArray;
         },
 
-        proposedStyle: `
-            border: 1px solid rgba(255, 255, 255);
-            padding: 0px 10px;
-            margin: 5px 7px 0px 0px;
-            border-radius: 5px;
-            font-family: arial,sans-serif;
-            font-size: 1em;
-            text-align: center;
-            color: rgb(153, 84, 34);
-            vertical-align: super;
-            transition: .8s ease-out;
-        `,
-
-        answerWordStyle: `
-            border: 1px solid rgb(208, 195, 195);
-            padding: 0px 10px;
-            margin: 5px 7px 0px 0px;
-            border-radius: 5px;
-            font-family: arial,sans-serif;
-            font-size: 1em;
-            text-align: center;
-            color: rgb(153, 84, 34);
-            vertical-align: super;
-            transition: .8s ease-out;
-        `,
-
     };
     
 })();

@@ -97,9 +97,11 @@ body {
     border: 1px solid rgb(226, 141, 101);
     background-color: rgb(255, 245, 245);
     font-family: arial,sans-serif;
-    font-size: 0.9em;
+    font-size: 1em;
+    color: rgb(197 118 83);
     text-align: center;
-    color: rgb(153, 84, 34);
+    font-weight: 600;
+    /* color: rgb(153, 84, 34); */
     overflow:hidden;
 }
 #answer-string:focus {
@@ -124,17 +126,46 @@ body {
     height: auto;
 }
 
+.proposeds-words {
+    background: #ffefc3;
+    display: inline-block;
+    margin: 3px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-family: arial, sans-serif;
+    /* font-size: 22px; */
+    font-size: 1em;
+    color: rgb(197 118 83);
+    text-align: center;
+    vertical-align: super;
+    transition: all 0.8s ease-out 0s;
+    font-weight: 600;
+}
+
+.answer-words {
+    border: 1px solid rgb(208, 195, 195);
+    display: inline-block;
+    margin: 3px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-family: arial,sans-serif;
+    font-size: 1em;
+    text-align: center;
+    color: rgb(197 118 83);
+    vertical-align: super;
+    transition: .8s ease-out;
+    font-weight: 600;
+}
+
 .proposeds *,
 #name-field *{
-    transition: .8s ease-out;
+    transition: .6s ease-out;
 }
 
 .victory {
     background-color: rgb(103, 196, 103) !important;
-    font-size: 1em !important;
 }
 
 .fail {
     background-color: rgb(213, 117, 136) !important;
-    font-size: 1em !important;
 }

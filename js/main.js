@@ -16,6 +16,8 @@ const askNewQuestion = function() {
     let questionLang = window.mode[selectedMode].Question;
     let answerLang = window.mode[selectedMode].Answer;
 
+    checkButton.value = window.mode[selectedMode].ChekWord;
+
     let currentTask = window.vocabulary.Tasks[randomTaskNumber];
 
     window.currentTaskItem = currentTask;
@@ -36,7 +38,7 @@ const askNewQuestion = function() {
     let encryptedArray2nd = window.randomiser.arrayShaker(arrAnswer, arrWithErrors2nd.slice(2, -1));
     let encryptedArray = window.randomiser.arrayShaker(encryptedArray1st, encryptedArray2nd);
 
-    window.render.renderFragment(encryptedArray, propArea, window.randomiser.proposedStyle);
+    window.render.renderFragment(encryptedArray, propArea, `proposeds-words`);
 
 };
 
@@ -44,21 +46,19 @@ askNewQuestion();
 
 propArea.addEventListener('click', function(evt){
     if(evt.target.nodeName === `SPAN`) {
-        window.render.renderWord(evt.target.textContent, answerArea, window.randomiser.answerWordStyle);
+        window.render.renderWord(evt.target.textContent, answerArea, `answer-words`);
         evt.target.remove();
     }
 });
 
 answerArea.addEventListener('click', function(evt){
     if(evt.target.nodeName === `SPAN`) {
-        window.render.renderWord(evt.target.textContent, propArea, window.randomiser.proposedStyle);
+        window.render.renderWord(evt.target.textContent, propArea, `proposeds-words`);
         evt.target.remove();
     }
 });
 
 modeSelector.addEventListener('change', function(){
-    answerArea.innerHTML = ``;
-    propArea.innerHTML = ``;
     askNewQuestion();
 });
 
@@ -86,14 +86,16 @@ checkButton.addEventListener('click', function(evt){
         taskArea.classList.add(`victory`);
         answerArea.classList.add(`victory`);
         propArea.classList.add(`victory`);
-        propArea.innerHTML = `Правильно =^_^=`;
+        // scoreRank.classList.add(`victory`);
+        // propArea.innerHTML = `Правильно =^_^=`;
         setTimeout(function(){
             taskArea.classList.remove(`victory`);
             answerArea.classList.remove(`victory`);
             propArea.classList.remove(`victory`);
+            // scoreRank.classList.remove(`victory`);
             propArea.innerHTML = ``;
-            askNewQuestion();
-        },2600);
+            // askNewQuestion();
+        },700);
     } else {
         failRank.textContent = +(failRank.textContent) + 1;
         taskArea.classList.add(`fail`);
@@ -101,6 +103,6 @@ checkButton.addEventListener('click', function(evt){
         setTimeout(function(){
             taskArea.classList.remove(`fail`);
             answerArea.classList.remove(`fail`);
-        },1900);
+        },500);
     }
 });
