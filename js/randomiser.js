@@ -33,21 +33,20 @@
             return newArr;
         },
 
-        getArrFromString: function (str) {
-            const arr1 = Array.from(str.toLowerCase().split(', '));
-            const arr2 = [];
-            let arr3 = [];
-            arr1.forEach(function (value) {
-                arr2.push(value.split(' '));
-            });
-            arr2.forEach(function (value) {
-                arr3 = arr3.concat(value);
-            });
-            arr3[arr3.length - 1] = arr3[arr3.length - 1].replace('.', '');
-            return arr3;
+        getIndexedArrFromString: function (str) {
+            const arr1 = Array.from(str.toLowerCase().split(` `));
+
+            return arr1;
         },
 
         arrayShaker: function (arrClean, arrDirty) {
+            const arrMidle = [];
+
+            arrClean.forEach(function (value, index) {
+                arrMidle.push(`###${index}###${value}`);
+            });
+            arrClean = arrMidle;
+
             const shakedLength = (arrClean.length + arrDirty.length) * window.randomiser.getRandomFromInterval(1, 2);
 
             let arrCleanPart1 = arrClean.slice(0, (arrClean.length / 3));
@@ -91,7 +90,24 @@
                 return shakedArray.indexOf(word) === index;
             });
 
-            return shakedArray;
+            let cleanedShakedArray = [];
+
+            shakedArray.forEach(function (value, index) {
+                cleanedShakedArray.push(value.replace(/###[0-9]###|###[0-9][0-9]###|###[0-9][0-9][0-9]###/g, ``));
+            });
+
+            const middleArray = [];
+
+            cleanedShakedArray.forEach(function (value) {
+                const regexp = /[!"#$%&*+,\-./:;<=>?@[\]^_`{|}~]/g;
+
+                const middleValue = value.replace(regexp, ``);
+
+                middleArray.push(middleValue);
+            });
+            cleanedShakedArray = middleArray;
+
+            return cleanedShakedArray;
         }
 
     };
