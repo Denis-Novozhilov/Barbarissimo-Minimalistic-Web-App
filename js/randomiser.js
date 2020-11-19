@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 'use strict';
 
 (function () {
@@ -99,7 +100,7 @@
             const middleArray = [];
 
             cleanedShakedArray.forEach(function (value) {
-                const regexp = /[!"#$%&*+,\-./:;<=>?@[\]^_`{|}~]/g;
+                const regexp = /[!"#$%&*+,\./:;<=>?@[\]^_`{|}~]/g;
 
                 const middleValue = value.replace(regexp, ``);
 

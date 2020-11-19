@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 'use strict';
 
 const taskArea = document.querySelector(`#task-string`);
@@ -28,14 +29,12 @@ const askNewQuestion = function () {
 
     taskArea.innerText = `${questionString}`;
 
-    // const arrQuestion = window.randomiser.getIndexedArrFromString(questionString);
     const arrAnswer = window.randomiser.getIndexedArrFromString(answerString);
-    // console.log(`arrAnswer -> ${arrAnswer}`);
 
     const errorsQuantity = window.randomiser.getRandomFromInterval((arrAnswer.length) / 3, (arrAnswer.length) / 2);
-    const arrWithErrors1st = window.randomiser.getRandomSetFromArrayInQuantity(window.vocabulary.AddWords[answerLang], errorsQuantity);
+    const arrWithErrors = window.randomiser.getRandomSetFromArrayInQuantity(window.vocabulary.AddWords[answerLang], errorsQuantity);
 
-    const encryptedArray = window.randomiser.arrayShaker(arrAnswer, arrWithErrors1st);
+    const encryptedArray = window.randomiser.arrayShaker(arrAnswer, arrWithErrors);
 
     window.render.renderFragment(encryptedArray, propArea, `proposeds-words`);
 };
@@ -70,14 +69,14 @@ const checkAnswer = function () {
 
     // ↓↓↓
     // clear and DRY ↓↓↓
-    const answerArray = cleanRightAnswer.split(/[!"#$%&*+, \-.:;<=>?@[\]^_`{|}~]+/g);
+    const answerArray = cleanRightAnswer.split(/[!"#$%&*+, \.:;<=>?@[\]^_`{|}~]+/g);
     let answerString = answerArray.join(`_`);
     if (answerString.slice(answerString.length - 1) === `_`) {
         answerString = answerString.slice(0, answerString.length - 1);
     };
     // console.log(answerString);
 
-    const yourArray = cleanUserAnswer.split(/[!"#$%&*+, \-.:;<=>?@[\]^_`{|}~]+/g);
+    const yourArray = cleanUserAnswer.split(/[!"#$%&*+, \.:;<=>?@[\]^_`{|}~]+/g);
     let yourString = yourArray.join(`_`);
     if (yourString.slice(yourString.length - 1) === `_`) {
         yourString = yourString.slice(0, yourString.length - 1);
@@ -112,6 +111,7 @@ const checkAnswer = function () {
         } else {
             window.answerIsCorrect = false;
             console.log(cleanRightAnswer);
+            // propArea.innerHTML = `${cleanRightAnswer}`;
             failRank.textContent = +(failRank.textContent) + 1;
             taskArea.classList.add(`fail`);
             answerArea.classList.add(`fail`);

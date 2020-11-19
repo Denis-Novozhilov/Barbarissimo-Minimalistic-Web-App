@@ -16,7 +16,11 @@
                 const element = document.createElement(`span`);
                 element.classList.add(className);
                 element.innerText = `${arr[i]} `;
-                fragment.appendChild(element);
+                if (element.textContent === ` `) {
+                    continue;
+                } else {
+                    fragment.appendChild(element);
+                }
             }
             area.appendChild(fragment);
         }
