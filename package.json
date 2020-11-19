@@ -1,0 +1,37 @@
+{
+  "name": "barbarissimo",
+  "version": "1.0.0",
+  "description": "Russian \\ English \\ Spanish web app",
+  "main": "index.html",
+  "scripts": {
+    "test": "eslint js/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Denis-Matyukha/Barbarissimo---Minimalistic-Web-App.git"
+  },
+  "keywords": [
+    "Language",
+    "Russian",
+    "English",
+    "Spanish",
+    "Education",
+    "Game",
+    "Application",
+    "Web",
+    "App"
+  ],
+  "author": "Denis Matyukha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Denis-Matyukha/Barbarissimo---Minimalistic-Web-App/issues"
+  },
+  "homepage": "https://github.com/Denis-Matyukha/Barbarissimo---Minimalistic-Web-App#readme",
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1"
+  }
+}
