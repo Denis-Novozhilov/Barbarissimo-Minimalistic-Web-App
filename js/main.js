@@ -7,17 +7,29 @@ const checkButton = document.querySelector(`#check-button`);
 const modeSelector = document.querySelector(`#mode`);
 const propArea = document.querySelector(`.proposeds`);
 
+window.gameStatus = {
+    isRoundActivated: false,
+    isRoundCompleted: false,
+    isAnswerCorrect: false
+};
+
+// all function askNewQuestion should be refactored
 const askNewQuestion = function () {
+    // coild be separated function resetStatus and cleanAreas ↓↓↓
     answerArea.innerHTML = ``;
     propArea.innerHTML = ``;
-    window.answerIsCorrect = false;
+    window.gameStatus.isAnswerCorrect = false;
+    window.gameStatus.isRoundActivated = false;
+    window.gameStatus.isRoundCompleted = false;
+    checkButton.setAttribute(`disabled`, `disabled`);
+    // ↑↑↑
 
     const randomTaskNumber = window.randomiser.getRandomFromInterval(0, window.vocabulary.Tasks.length - 1);
     const selectedMode = modeSelector.value;
     const questionLang = window.mode[selectedMode].Question;
     const answerLang = window.mode[selectedMode].Answer;
 
-    checkButton.classList.remove(`victory`);
+    // checkButton.classList.remove(`victory`);
     checkButton.value = window.mode[selectedMode].ChekWord;
 
     const currentTask = window.vocabulary.Tasks[randomTaskNumber];
@@ -39,9 +51,15 @@ const askNewQuestion = function () {
     window.render.renderFragment(encryptedArray, propArea, `proposeds-words`);
 };
 
-askNewQuestion();
-
+// ↓↓↓
+// clear and DRY ↓↓↓
 propArea.addEventListener(`click`, function (evt) {
+    // could be separated funcion activatedRound
+    if (!window.gameStatus.isRoundActivated) {
+        window.gameStatus.isRoundActivated = true;
+        checkButton.removeAttribute(`disabled`);
+    }
+    // could be separated funcion replaceElement
     if (evt.target.nodeName === `SPAN`) {
         window.render.renderWord(evt.target.textContent, answerArea, `answer-words`);
         evt.target.remove();
@@ -49,11 +67,19 @@ propArea.addEventListener(`click`, function (evt) {
 });
 
 answerArea.addEventListener(`click`, function (evt) {
+    // could be separated funcion activatedRound
+    if (!window.gameStatus.isRoundActivated) {
+        window.gameStatus.isRoundActivated = true;
+        checkButton.removeAttribute(`disabled`);
+    }
+    // could be separated funcion replaceElement
     if (evt.target.nodeName === `SPAN`) {
         window.render.renderWord(evt.target.textContent, propArea, `proposeds-words`);
         evt.target.remove();
     }
 });
+// clear and DRY ↑↑↑
+// ↑↑↑
 
 modeSelector.addEventListener(`change`, function () {
     askNewQuestion();
@@ -88,14 +114,17 @@ const checkAnswer = function () {
     const scoreRank = document.querySelector(`#scoreRank`).querySelector(`.rank`);
     const failRank = document.querySelector(`#failRank`).querySelector(`.rank`);
 
-    if (window.answerIsCorrect) {
+    if (window.gameStatus.isRoundCompleted) {
+        // could be separated function returnGame
         checkButton.classList.remove(`victory`);
+        checkButton.classList.remove(`fail`);
         propArea.innerHTML = ``;
-        window.answerIsCorrect = false;
         askNewQuestion();
     } else {
         if (answerString === yourString) {
-            window.answerIsCorrect = true;
+            // this code should be refactored DRY ↓↓↓↓↓
+            window.gameStatus.isAnswerCorrect = true;
+            window.gameStatus.isRoundCompleted = true;
             scoreRank.textContent = +(scoreRank.textContent) + 1;
             taskArea.classList.add(`victory`);
             answerArea.classList.add(`victory`);
@@ -108,19 +137,29 @@ const checkAnswer = function () {
                 checkButton.classList.add(`victory`);
                 checkButton.value = window.mode[selectedMode].NextWord;
             }, 600);
+            // ↑↑↑↑↑ DRY and clear
         } else {
-            window.answerIsCorrect = false;
+            // this code should be refactored DRY ↓↓↓↓↓
+            window.gameStatus.isAnswerCorrect = false;
+            window.gameStatus.isRoundCompleted = true;
             console.log(cleanRightAnswer);
-            // propArea.innerHTML = `${cleanRightAnswer}`;
             failRank.textContent = +(failRank.textContent) + 1;
             taskArea.classList.add(`fail`);
             answerArea.classList.add(`fail`);
+            checkButton.classList.add(`fail`);
+            checkButton.value = window.mode[selectedMode].NextWord;
+            propArea.innerHTML = `${cleanRightAnswer}`;
+            propArea.classList.add(`fail`);
             setTimeout(function () {
                 taskArea.classList.remove(`fail`);
                 answerArea.classList.remove(`fail`);
+                propArea.classList.remove(`fail`);
             }, 400);
+            // ↑↑↑↑↑ DRY and clear
         }
     }
 };
 
+// start game ↓↓↓
+askNewQuestion();
 checkButton.addEventListener(`click`, checkAnswer);

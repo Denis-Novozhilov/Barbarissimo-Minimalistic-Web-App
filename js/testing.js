@@ -1,6 +1,6 @@
 'use strict';
 
 // (function () {
-//     window.answerIsCorrect = false;
+//     window.gameStatus.isAnswerCorrect = false;
 //     window.testings = {};
 // })();

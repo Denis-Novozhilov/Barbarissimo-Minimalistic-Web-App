@@ -5,6 +5,14 @@
 
         Tasks: [
 
+            // {
+            //     Id: `TEST`,
+            //     Russian: `Это интересно.`,
+            //     Spanish: `Es entretenido.`,
+            //     English: `It is entertaining.`,
+            //     Additional: ``
+            // },
+
             {
                 Id: `1`,
                 Russian: `Это интересно, потому что студенты изучают робототехнику, а также изучают компьютерное программирование.`,
