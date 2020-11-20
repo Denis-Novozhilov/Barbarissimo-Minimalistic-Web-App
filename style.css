@@ -18,9 +18,8 @@ body {
     left: 0%;
     bottom: 0;
     margin: 0.1vh 0.1vw;
-    padding:1em 2em;
+    padding: 15px 10px;
     background-color: rgb(254, 218, 177);
-    border-radius: 30px 30px 30px 30px;
     overflow-y: auto;
 }
 
@@ -34,33 +33,35 @@ body {
 
 .main_box #mode {
     background-color: rgb(255, 239, 195);
-    color:rgb(226, 141, 101);
+    color: rgb(226, 141, 101);
     font-family: arial,sans-serif;
     font-size: 0.6em;
     border: none;
-    padding: 6px 15px 5px;
+    padding: 0px 15px 0px;
     display: block;
     position: absolute;
+    height: 15px;
     top: -8px;
     right: 0px;
-    border-radius: 16px 16px 0px 0px;
+    border-radius: 15px 15px 0px 15px;
 }
 
 #scoreRank, #failRank {
-    color:rgb(226, 141, 101);
-    background-color: rgb(255, 239, 195);
+    color: rgb(226, 141, 101);
+    background-color: rgb(255 239 195);
     font-family: arial,sans-serif;
     font-size: 0.6em;
-    padding: 6px 22px 5px 12px;
+    padding: 2px 22px 0px 12px;
     text-align: center;
     display: inline;
     position: absolute;
+    height: 15px;
 }
 
 #scoreRank {
     left: 0px;
     top: -8px;
-    border-radius: 16px 0px 0px 0px;
+    border-radius: 8px 0px 0px 0px;
     overflow: hidden;
 }
 #failRank {
@@ -68,7 +69,8 @@ body {
     padding-right: 18px;
     left: 60px;
     top: -8px;
-    border-radius: 0px 16px 0px 0px;
+    /* border-radius: 0px 16px 0px 0px;*/
+    border-radius: 0px 8px 0px 0px; 
 }
 .scoreVictory {
     color: rgb(94, 177, 86);
@@ -83,7 +85,7 @@ body {
     position: relative;
     text-align: center;
     padding: 1em;
-    border-radius: 15px 15px 20px 20px;
+    border-radius: 0px 0px 10px 10px;
     background-color: rgb(255, 239, 195);
 }
 
@@ -101,7 +103,6 @@ body {
     color: rgb(197 118 83);
     text-align: center;
     font-weight: 600;
-    /* color: rgb(153, 84, 34); */
     overflow:hidden;
 }
 #answer-string:focus {
@@ -118,6 +119,10 @@ body {
     font-family: arial,sans-serif;
     background-color: rgb(254, 218, 177);
     color: rgb(153, 84, 34);
+}
+#check-button:disabled {
+    background-color: rgb(255 153 153);
+    color: rgb(172 49 49 / 49%);
 }
 
 .proposeds {
